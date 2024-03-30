@@ -1,0 +1,41 @@
+.container {
+  background-color: #000;
+  background-image: url("../../../shared/assets/images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    #000000 21.85%,
+    rgba(21, 21, 21, 0.79462) 34.63%,
+    rgba(102, 102, 102, 0) 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .container {
+    background-image: url("../../../shared/assets/images/bg-mobile.png");
+    background-size: auto;
+    background-position: top;
+  }
+
+  .container::before {
+    background: linear-gradient(
+      180deg,
+      #000000 8.45%,
+      rgba(0, 0, 0, 0.79462) 29.87%,
+      rgba(84, 84, 84, 0) 92.14%
+    );
+    transform: rotate(180deg);
+  }
+}

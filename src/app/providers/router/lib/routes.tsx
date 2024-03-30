@@ -1,31 +1,16 @@
-import App from "@/app/App";
-import { PageFour } from "@/pages/page-four";
-import { PageOne } from "@/pages/page-one";
-import { PageThree } from "@/pages/page-three";
-import { PageTwo } from "@/pages/page-two";
 import { createBrowserRouter } from "react-router-dom";
+
+import App from "@/app/App";
+import { Main } from "@/pages/main";
+import { Content } from "@/pages/content";
 
 export const router = createBrowserRouter([
   {
     element: <App />,
     path: "/",
     children: [
-      {
-        element: <PageOne />,
-        path: "",
-      },
-      {
-        element: <PageTwo />,
-        path: "/2",
-      },
-      {
-        element: <PageThree />,
-        path: "/3",
-      },
-      {
-        element: <PageFour />,
-        path: "/4",
-      },
+      { path: "", element: <Main /> },
+      { path: "content/:id", element: <Content /> },
     ],
   },
 ]);

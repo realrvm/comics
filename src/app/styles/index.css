@@ -2,12 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Vinque";
+  src: url("/fonts/Vinque.ttf");
+}
+
+@font-face {
+  font-family: "Yatra One";
+  src: url("/fonts/YatraOne.ttf");
+}
+
 @layer base {
   html {
     @apply h-full;
   }
 
   body {
-    @apply relative h-full bg-gray-100;
+    @apply relative h-full;
   }
 }

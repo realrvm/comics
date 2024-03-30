@@ -1,0 +1,53 @@
+.bb__drawer_container {
+  --transition-speed: 0.3s;
+}
+
+.bb__drawer {
+  padding: 36px 44px 12px;
+  background-color: #000;
+  height: 100vh;
+  width: 444px;
+  overflow: auto;
+  position: fixed;
+  transition: transform var(--transition-speed) ease;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .bb__drawer {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+}
+
+.bb__drawer.top {
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+
+.bb__drawer_container.in.open .top {
+  transform: translateY(0);
+}
+
+.bb__backdrop {
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity var(--transition-speed) ease,
+    visibility var(--transition-speed) ease;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bb__drawer_container.in.open .bb__backdrop {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 999;
+}
