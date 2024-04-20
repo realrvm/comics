@@ -2,12 +2,21 @@ import { FC } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { MenuDecoration } from "@/shared/ui/icons/MenuDecoration";
+import { useWindowWidth } from "@/shared/lib/hooks/useWindowWidth";
+import { cn } from "@/shared/lib/cn";
+import { MOBILE_WIDTH } from "@/shared/lib/constants";
 
 export const Sidebar: FC = () => {
   const navigate = useNavigate();
+  const { width } = useWindowWidth();
+  const isNotMobileWidth = width > MOBILE_WIDTH;
 
   return (
-    <div className="flex flex-col items-center max-w-[500px] w-full py-16">
+    <div
+      className={cn("flex flex-col items-center w-full py-16", {
+        "max-w-[400px]": isNotMobileWidth,
+      })}
+    >
       <h2
         className="text-beige font-vinque text-[48px] uppercase text-center leading-[52px] cursor-pointer"
         onClick={() => navigate("/")}
